@@ -1,21 +1,21 @@
-2025/03/26-09:35:56.910 a903 Reusing MANIFEST /Users/fieldpro/Documents/CrioloWhatsApp/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/03/26-09:35:56.912 a903 Recovering log #292
-2025/03/26-09:35:56.970 a903 Reusing old log /Users/fieldpro/Documents/CrioloWhatsApp/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000292.log 
-2025/03/26-09:36:00.021 1f503 Level-0 table #301: started
-2025/03/26-09:36:00.065 1f503 Level-0 table #301: 345896 bytes OK
-2025/03/26-09:36:00.107 1f503 Delete type=0 #292
-2025/03/26-09:36:00.111 1f503 Manual compaction at level-0 from '\x008\x00\x00\x00' @ 72057594037927935 : 1 .. '\x009\x00\x00\x00' @ 0 : 0; will stop at (end)
-2025/03/26-09:36:05.589 a403 Compacting 1@1 + 5@2 files
-2025/03/26-09:36:05.942 a403 Generated table #302@1: 72840 keys, 2237099 bytes
-2025/03/26-09:36:06.126 a403 Generated table #303@1: 15338 keys, 2172762 bytes
-2025/03/26-09:36:06.553 a403 Generated table #304@1: 37568 keys, 2172839 bytes
-2025/03/26-09:36:06.954 a403 Generated table #305@1: 98046 keys, 2250735 bytes
-2025/03/26-09:36:06.996 a403 Generated table #306@1: 2470 keys, 89295 bytes
-2025/03/26-09:36:06.996 a403 Compacted 1@1 + 5@2 files => 8922730 bytes
-2025/03/26-09:36:07.021 a403 compacted to: files[ 0 0 5 0 0 0 0 ]
-2025/03/26-09:36:07.026 a403 Delete type=2 #301
-2025/03/26-09:36:07.026 a403 Delete type=2 #298
-2025/03/26-09:36:07.026 a403 Delete type=2 #296
-2025/03/26-09:36:07.026 a403 Delete type=2 #297
-2025/03/26-09:36:07.026 a403 Delete type=2 #295
-2025/03/26-09:36:07.026 a403 Delete type=2 #294
+2025/03/26-18:25:55.134 4d84 Reusing MANIFEST C:\Users\guilh\OneDrive\Documentos\Genesis\CrioloWhatsApp\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/03/26-18:25:55.141 4d84 Recovering log #358
+2025/03/26-18:25:55.275 4d84 Reusing old log C:\Users\guilh\OneDrive\Documentos\Genesis\CrioloWhatsApp\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000358.log 
+2025/03/26-18:25:56.829 216c Level-0 table #367: started
+2025/03/26-18:25:56.866 216c Level-0 table #367: 850808 bytes OK
+2025/03/26-18:25:56.868 216c Delete type=0 #358
+2025/03/26-18:25:56.870 216c Manual compaction at level-0 from '\x00@\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00A\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/03/26-18:25:58.772 479c Compacting 1@1 + 5@2 files
+2025/03/26-18:25:58.891 479c Generated table #368@1: 77875 keys, 2239703 bytes
+2025/03/26-18:25:58.971 479c Generated table #369@1: 14463 keys, 2164647 bytes
+2025/03/26-18:25:59.048 479c Generated table #370@1: 27319 keys, 2174306 bytes
+2025/03/26-18:25:59.182 479c Generated table #371@1: 97914 keys, 2248266 bytes
+2025/03/26-18:25:59.212 479c Generated table #372@1: 20123 keys, 500236 bytes
+2025/03/26-18:25:59.212 479c Compacted 1@1 + 5@2 files => 9327158 bytes
+2025/03/26-18:25:59.215 479c compacted to: files[ 0 0 5 0 0 0 0 ]
+2025/03/26-18:25:59.215 479c Delete type=2 #360
+2025/03/26-18:25:59.215 479c Delete type=2 #361
+2025/03/26-18:25:59.215 479c Delete type=2 #362
+2025/03/26-18:25:59.215 479c Delete type=2 #363
+2025/03/26-18:25:59.215 479c Delete type=2 #364
+2025/03/26-18:25:59.215 479c Delete type=2 #367

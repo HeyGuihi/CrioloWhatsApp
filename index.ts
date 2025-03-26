@@ -7,6 +7,23 @@ import fs from "fs";
 // Carrega as variáveis de ambiente do arquivo .env
 dotenv.config();
 
+const notificationContacts = ["5511977502390@c.us", "5511939262445@c.us"];
+
+async function notifyMeetingCreation(meeting: Meeting) {
+  const message = `📅 Nova reunião agendada!\n\n📆 Data: ${meeting.dayOfWeek}, ${meeting.date}\n🕒 Horário: ${meeting.time}\n📞 Contato: ${meeting.phoneNumber}`;
+
+  for (const chatId of notificationContacts) {
+    try {
+      await client.sendMessage(chatId, message);
+      console.log(`📩 Notificação enviada para ${chatId}: ${message}`);
+    } catch (error) {
+      console.error(`❌ Erro ao enviar notificação para ${chatId}:`, error);
+    }
+  }
+}
+
+
+
 // Definindo tipos para o histórico de conversas
 interface ConversationHistory {
   [userId: string]: { role: string; content: string }[];
@@ -17,6 +34,7 @@ interface Meeting {
   dayOfWeek: string; // Ex: "Quarta-feira"
   time: string; // Ex: "14:00"
   name: string; // Nome do cliente
+  phoneNumber: string; // Número do contato
 }
 
 // Objeto para armazenar o histórico de conversas
@@ -24,10 +42,14 @@ const conversationHistory: ConversationHistory = {};
 let meetings: Meeting[] = [];
 
 // Função para agendar uma reunião
-function scheduleMeeting(date: string, dayOfWeek: string, time: string, name: string) {
-  meetings.push({ date, dayOfWeek, time, name });
+function scheduleMeeting(date: string, dayOfWeek: string, time: string, name: string, phoneNumber: string) {
+  const newMeeting: Meeting = { date, dayOfWeek, time, name, phoneNumber }; // Adiciona o número do contato
+  meetings.push(newMeeting);
   saveMeetings();
+  notifyMeetingCreation(newMeeting);  
 }
+
+
 
 // Função para carregar as reuniões do arquivo JSON
 function loadMeetings() {
@@ -43,7 +65,7 @@ function saveMeetings() {
 }
 
 // Lista de horários disponíveis
-const availableTimes = ["14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
+const availableTimes = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00"];
 
 // Função para verificar se o horário está disponível em um determinado dia
 function isTimeAvailable(date: string, time: string): boolean {
@@ -61,7 +83,7 @@ function getTomorrowDate(): { date: string; dayOfWeek: string } {
   tomorrow.setDate(tomorrow.getDate() + 1);
 
   const date = tomorrow.toISOString().split("T")[0]; // Formato YYYY-MM-DD
-  const daysOfWeek = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+  const daysOfWeek = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"];
   const dayOfWeek = daysOfWeek[tomorrow.getDay()];
 
   return { date, dayOfWeek };
@@ -142,19 +164,21 @@ async function processMessage(text: string, userId: string): Promise<string> {
     // Verifica se a resposta contém "Reunião Agendada!"
     if (reply.includes("Reunião Agendada!")) {
       const timeMatch = reply.match(/(\d{2}:\d{2})/);
-
+    
       if (timeMatch) {
         const time = timeMatch[0];
         const name = conversationHistory[userId].find(msg => msg.role === "user")?.content || "Cliente";
-
+        const phoneNumber = userId; // O WhatsApp envia o número do usuário como `userId`
+    
         if (isTimeAvailable(date, time)) {
-          scheduleMeeting(date, dayOfWeek, time, name);
-          console.log(`✅ Reunião agendada para ${dayOfWeek}, ${date} às ${time} com ${name}`);
+          scheduleMeeting(date, dayOfWeek, time, name, phoneNumber);
+          console.log(`✅ Reunião agendada para ${dayOfWeek}, ${date} às ${time} com ${name} (${phoneNumber})`);
         } else {
           reply += `\nDesculpe, esse horário já está ocupado. Por favor, escolha outro horário.`;
         }
       }
     }
+    
 
     conversationHistory[userId].push({ role: "assistant", content: reply });
 

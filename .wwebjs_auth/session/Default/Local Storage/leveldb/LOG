@@ -1,3 +1,6 @@
-2025/03/26-09:35:55.202 ac03 Reusing MANIFEST /Users/fieldpro/Documents/CrioloWhatsApp/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2025/03/26-09:35:55.204 ac03 Recovering log #11
-2025/03/26-09:35:55.205 ac03 Reusing old log /Users/fieldpro/Documents/CrioloWhatsApp/.wwebjs_auth/session/Default/Local Storage/leveldb/000011.log 
+2025/03/26-18:25:53.939 43b8 Reusing MANIFEST C:\Users\guilh\OneDrive\Documentos\Genesis\CrioloWhatsApp\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
+2025/03/26-18:25:53.949 43b8 Recovering log #13
+2025/03/26-18:25:53.950 43b8 Reusing old log C:\Users\guilh\OneDrive\Documentos\Genesis\CrioloWhatsApp\.wwebjs_auth\session\Default\Local Storage\leveldb/000013.log 
+2025/03/26-18:26:55.097 fc Level-0 table #15: started
+2025/03/26-18:26:55.103 fc Level-0 table #15: 13103 bytes OK
+2025/03/26-18:26:55.106 fc Delete type=0 #13
