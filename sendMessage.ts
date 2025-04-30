@@ -10,10 +10,13 @@ const client = new Client({
   authStrategy: new LocalAuth(),
 });
 
+import qrcode from "qrcode-terminal";
+
 client.on("qr", (qr: string) => {
   console.log("Escaneie o QR code para autenticar.");
-  console.log(qr);
+  qrcode.generate(qr, { small: true }); // Gera o QR Code no terminal
 });
+
 
 client.on("ready", async () => {
   console.log("✅ Cliente do WhatsApp pronto!");
